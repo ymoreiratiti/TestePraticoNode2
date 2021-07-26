@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { Boleto, ValidationError, ValidationErrorMessage } from '../../../src/class/Boleto'
 
-export default (req: NextApiRequest, res: NextApiResponse) => {
+function barCodeController (req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'GET') return res.status(500)
   const barCode = req.query.barCode.toString()
 
@@ -22,3 +22,5 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
     })
   }
 }
+
+export default barCodeController
